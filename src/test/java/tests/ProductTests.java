@@ -16,14 +16,15 @@ public class ProductTests extends BaseClass {
         ProductPage product = new ProductPage(driver);
 //        System.out.println(product.areAllProductsDisplayed());
         Assert.assertTrue(product.areAllProductsDisplayed());
+        Assert.assertTrue(product.areAllProductDiscriptionDisplayed());
         product.clickCartButton();
         product.clickProduct();
         product.clickBackToProducts();
 
-//        String expectedUrl = "https://www.saucedemo.com/inventory.html";
-//        String actualUrl = driver.getCurrentUrl();
+        String expectedUrl = "https://www.saucedemo.com/inventory.html";
+        String actualUrl = driver.getCurrentUrl();
 
-//        Assert.assertEquals(actualUrl, expectedUrl);
+        Assert.assertEquals(actualUrl, expectedUrl);
 
     }
 }

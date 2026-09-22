@@ -9,6 +9,7 @@ import java.util.List;
 public class ProductPage {
     private WebDriver driver;
     private By productImages = By.className("inventory_item_img");
+    private By productDiscription = By.className(".inventory_item_description");
     private By addToCartButton = By.id("add-to-cart-sauce-labs-backpack");
     private By productDisplay = By.id("item_4_img_link");
     private By backToProduct = By.id("back-to-products");
@@ -27,6 +28,18 @@ public class ProductPage {
         }
         return true;
     }
+
+    public boolean areAllProductDiscriptionDisplayed() {
+        List<WebElement> products = driver.findElements(productDiscription);
+
+        for (WebElement product : products) {
+            if(!product.isDisplayed()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void clickCartButton() {
         driver.findElement(addToCartButton).click();
     }
